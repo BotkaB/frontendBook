@@ -1,38 +1,20 @@
-import React from 'react'
-import './Termek.css'
+import React, {useContext} from "react";
+import Button from "./Button";
+import { KosarContext } from "../context/KosarContext";
 
 
-function Termek(props) {
-
+export default function Termek({ kartya }) {
+  const {  kosarbaRak } = useContext(KosarContext);
   return (
-      
-    <div className="card kivalaszt col-lg-4 col-md-6 col-sm-12">
-        <div className='card-body'>
-            <h3>
-            {props.kartya.author}       {/*átadtam a listaelem értékeit a megjelenítésre */}
-            </h3>
-            <div className='card-img-holder'>
-                <div>
-                    <p>
-                        {props.kartya.title}       {/*átadtam a listaelem értékeit a megjelenítésre */}
-                    </p>
-                    
-                </div>
-                <div>
-                    <p>
-                        {props.kartya.pieces}
-                    </p>
-                </div>
-            
-
-
-            </div>
+    <div className="card col-lg-4 col-md-6 col-sm-12">
+      <div className="card-body">
+        <h3>{kartya.author}</h3>
+        <div> {kartya.title} </div>
+        <div>Készleten: {kartya.pieces} db.</div>
+        <div className= "card-footer"> ÁR: {kartya.prices} Ft.
+        <Button onClick={() => kosarbaRak(kartya)}>kosárba tesz</Button>
         </div>
+      </div>
     </div>
-
-
-
-  )
+  );
 }
-
-export default Termek

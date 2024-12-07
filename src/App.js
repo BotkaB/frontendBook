@@ -1,16 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import Termekek from './components/Termekek';
+import "./App.css";
+import KosarKezelo from "./components/KosarKezelo";
+import { WebProvider } from "./context/ApiContext";
+import { KosarProvider } from "./context/KosarContext";
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-      <h3>Books</h3>
+        <h3>Books</h3>
       </header>
-      <div className='kontener'>
-      <Termekek />
-      </div>
+      <main className="App-main">
+        <WebProvider>
+          <KosarProvider>
+            <KosarKezelo />
+          </KosarProvider>
+        </WebProvider>
+      </main>
     </div>
   );
 }
