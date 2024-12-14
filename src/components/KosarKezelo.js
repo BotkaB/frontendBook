@@ -3,6 +3,31 @@ import Kosar from "./Kosar";
 import Termekek from "./Termekek";
 import { KosarContext } from "../context/KosarContext";
 
+
+
+const styles={
+ 
+  
+kosarOldalsav: {
+  width: '500px',
+  /* Fix szélesség beállítása az oldalsávnak */
+  padding: '20px',
+  /* Belső margó hozzáadása */
+  backgroundColor: '#f8f9fa',
+  /* Háttérszín beállítása */
+  borderLeft: '1px solid #ddd',
+  /* Bal oldali szegély hozzáadása */
+  position: 'sticky',
+  /* Fixálás az oldal jobb szélén */
+  top: '0',
+  /* A tetejéhez igazítás */
+  maxHeight: 'fit-content',
+
+  overflowY: 'auto'
+  /* Függőleges görgetés engedélyezése */
+}
+  };
+  
 // 'KosarKezelo' komponens definiálása
 export default function KosarKezelo() {
   const { termekLista, kosar, noveles, csokkentes, torles, kosarbaRak } =
@@ -10,11 +35,11 @@ export default function KosarKezelo() {
  
   return (
     <div className="App-container">
-      <div className="termekek">
+      <div className="termekek" >
         {/* Termékek komponens meghívása és a contextből származó terméklista átadása */}
         <Termekek termekLista={termekLista} katt={kosarbaRak} />
       </div>
-      <aside className="kosar-oldalsav">
+      <aside className="kosar-oldalsav" styles={styles.kosarOldalsav}>
         {/* Kosár komponens meghívása és a contextből származó értékek és függvények átadása */}
         <Kosar
           kosar={kosar}

@@ -1,27 +1,75 @@
 .App {
   text-align: center;
+  /* Szöveg középre igazítása */
 }
-
-
-
 
 .App-header {
-  background-color: #fbfbfb;
-  min-height: 10vh;
+  background-color: #282c34;
+  /* Háttérszín beállítása */
+  min-height: 20vh;
+  /* Minimális magasság beállítása */
   display: flex;
+  /* Flexbox elrendezés */
   flex-direction: column;
+  /* Elemek oszlopirányú elrendezése */
   align-items: center;
+  /* Elemek középre igazítása vízszintesen */
   justify-content: center;
+  /* Elemek középre igazítása függőlegesen */
   font-size: calc(10px + 2vmin);
-  color: black;
+  /* Betűméret dinamikus beállítása */
+  color: white;
+  /* Betűszín beállítása */
 }
 
-.kontener{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+.App-container {
+  display: flex;
+  /* Flexbox elrendezés a fő tartalomnak */
 }
 
 
 
 
+@media (max-width: 1024px) {
+  .kosar-oldalsav {
+    width: 200px;
+    /* Szélesség csökkentése normál képernyőkön */
+    padding: 15px;
+    /* Belső margó csökkentése */
+  }
+}
 
+@media (max-width: 768px) {
+  .kosar-oldalsav {
+    width: 150px;
+    /* Szélesség csökkentése tablet méreteken */
+    padding: 10px;
+    /* Belső margó csökkentése */
+  }
+}
+
+@media (max-width: 600px) {
+  .App-container {
+    flex-direction: column;
+    /* Oszlopirányú elrendezés kisebb képernyőkön */
+  }
+
+  .kosar-oldalsav {
+    width: 100%;
+    /* Teljes szélesség kisebb képernyőkön */
+    flex: 0 1 auto;
+    /* Rugalmas elrendezés */
+    position: relative;
+    /* Fixálás megszüntetése */
+    max-height: none;
+    /* Maximális magasság eltávolítása */
+    height: auto;
+    /* Automatikus magasság */
+    border-left: none;
+    /* Bal oldali szegély eltávolítása */
+    border-top: 1px solid #ddd;
+    /* Felső szegély hozzáadása */
+    padding: 10px;
+    /* Belső margó csökkentése */
+  }
+}
